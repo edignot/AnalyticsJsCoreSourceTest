@@ -11,7 +11,9 @@ const Dropdown = ({ possibleOptions, title, type }) => {
   }
 
   const options = possibleOptions.map((option) => (
-    <option value={option}>{option}</option>
+    <option value={option} key={option}>
+      {option}
+    </option>
   ))
   return (
     <select onChange={handleSelectorChange}>

@@ -26,11 +26,22 @@ const Restaurants = () => {
     fetchRestaurants()
   }, [dispatch])
 
-  const filteredRestaurants =
-    session.searchApplied &&
-    restaurants.filter((restaurant) =>
+  let filteredRestaurants
+
+  if (session.searchApplied && session.genreFilter && session.stateFilter) {
+    const searchMatches = restaurants.filter((restaurant) =>
       session.filteredRestaurants.includes(restaurant.id),
     )
+
+    filteredRestaurants = searchMatches.filter((restaurant) => {
+      if (
+        restaurant.state === session.stateFilter &&
+        restaurant.genreArray.includes(session.genreFilter)
+      ) {
+        return restaurant
+      }
+    })
+  }
 
   const restaurantsToMap = filteredRestaurants || restaurants
 
@@ -40,8 +51,6 @@ const Restaurants = () => {
     indexOfFirstRestaurant,
     indexOfLastRestaurant,
   )
-
-  console.log(session.currentPageNumber)
 
   const paginateHandler = (pageNumber) => {
     dispatch(setCurrentPageNumber(pageNumber))

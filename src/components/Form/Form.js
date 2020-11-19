@@ -62,8 +62,6 @@ const Form = () => {
     [],
   )
 
-  console.log(genreFilterOptions)
-
   return (
     <section>
       <section>
