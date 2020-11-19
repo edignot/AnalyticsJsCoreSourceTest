@@ -16,13 +16,8 @@ const Restaurants = () => {
   }, [dispatch])
 
   const restaurants = useSelector((store) => store.restaurants)
-  const session = useSelector((store) => store.session)
 
-  const mappedRestaurants =
-    !session.filteredRestaurants.length &&
-    restaurants.map((restaurant) => {
-      return <Restaurant key={uid()} restaurant={restaurant} />
-    })
+  const session = useSelector((store) => store.session)
 
   const filteredRestaurants =
     session.filterApplied &&
@@ -30,15 +25,15 @@ const Restaurants = () => {
       session.filteredRestaurants.includes(restaurant.id),
     )
 
-  const filteredMappedRestaurants =
-    filteredRestaurants.length &&
-    filteredRestaurants.map((restaurant) => {
-      return <Restaurant key={uid()} restaurant={restaurant} />
-    })
+  const restaurantsToMap = filteredRestaurants || restaurants
+
+  const mappedRestaurants = restaurantsToMap.map((restaurant) => {
+    return <Restaurant key={uid()} restaurant={restaurant} />
+  })
 
   return (
     <>
-      <div>{mappedRestaurants || filteredMappedRestaurants}</div>
+      <div>{mappedRestaurants}</div>
       {loading && <LoadingSpinner asOverlay />}
     </>
   )
