@@ -8,11 +8,17 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 const Restaurants = () => {
   const dispatch = useDispatch()
 
-  // set is loading
   const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [restaurantsPerPage, setRestaurantsPerPage] = useState(10)
 
   useEffect(() => {
-    dispatch(getRestaurants())
+    const fetchRestaurants = async () => {
+      setLoading(true)
+      await dispatch(getRestaurants())
+      setLoading(false)
+    }
+    fetchRestaurants()
   }, [dispatch])
 
   const restaurants = useSelector((store) => store.restaurants)
