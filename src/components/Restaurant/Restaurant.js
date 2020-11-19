@@ -1,4 +1,5 @@
 import React from 'react'
+import { uid } from 'uid'
 
 const Restaurant = ({ restaurant }) => {
   const {
@@ -11,23 +12,35 @@ const Restaurant = ({ restaurant }) => {
     lat,
     long,
     telephone,
-    tags,
     website,
-    genre,
     hours,
     attire,
     tagsArray,
     genreArray,
   } = restaurant
 
-  const genres = genreArray.map((genre) => <li>{genre}</li>)
+  const genres = genreArray.map((genre) => <li key={uid()}>{genre}</li>)
+  const tags = tagsArray.map((tag) => <li key={uid()}>{tag}</li>)
+
   return (
     <section>
-      <p>{name}</p>
-      <p>{city}</p>
-      <p>{state}</p>
-      <p>{telephone}</p>
-      <ul>{genres}</ul>
+      <section>
+        <p>{name}</p>
+        <p>{city}</p>
+        <p>{state}</p>
+        <p>{telephone}</p>
+        <ul>{genres}</ul>
+        <button>See More Details</button>
+      </section>
+      <section>
+        <p>{`${address1} ${city} ${state} ${zip}`}</p>
+        <p>{hours}</p>
+        <a href={website} target='_blank'>
+          {website}
+        </a>
+        <ul>{tags}</ul>
+        <p>{attire}</p>
+      </section>
     </section>
   )
 }
