@@ -202,15 +202,15 @@ const Restaurants = () => {
   })
 
   return (
-    <>
-      <div>{mappedRestaurants}</div>
+    <section className='restaurants-pagination-container'>
+      <section className='restaurants-container'>{mappedRestaurants}</section>
       {loading && <LoadingSpinner asOverlay />}
       <Pagination
         restaurantsPerPage={restaurantsPerPage}
         totalRestaurants={restaurantsToMap.length}
         paginate={paginateHandler}
       />
-    </>
+    </section>
   )
 }
 

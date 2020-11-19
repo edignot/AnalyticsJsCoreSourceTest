@@ -1,3 +1,11 @@
 .hidden {
   display: none;
 }
+
+.restaurant-container {
+  margin: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+  background-color: var(--light);
+}

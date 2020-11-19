@@ -27,7 +27,7 @@ const Restaurant = ({ restaurant }) => {
   const tags = tagsArray.map((tag) => <li key={uid()}>{tag}</li>)
 
   return (
-    <section>
+    <section className='restaurant-container'>
       <section>
         <p>{name}</p>
         <p>{city}</p>
