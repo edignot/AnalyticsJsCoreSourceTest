@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
-import { filterRestaurants } from '../../actions/session'
+import { clearFilter, filterRestaurants } from '../../actions/session'
 
 const Form = () => {
   const dispatch = useDispatch()
@@ -40,6 +40,7 @@ const Form = () => {
         <button onClick={searchByInput}>
           <BiSearch />
         </button>
+        <button onClick={() => dispatch(clearFilter())}>CLEAR</button>
       </section>
     </section>
   )
