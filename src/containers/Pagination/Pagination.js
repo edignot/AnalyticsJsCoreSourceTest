@@ -8,17 +8,20 @@ const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
     pageNumbers.push(i)
   }
   return (
-    <nav>
-      <ul>
-        {pageNumbers.map((number) => (
-          <li key={number}>
-            <a onClick={() => paginate(number)} href='!#'>
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <ul className='pages-wrapper'>
+      {pageNumbers.map((number) => (
+        <li
+          key={number}
+          className='page-item'
+          onClick={() => {
+            paginate(number)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+        >
+          <p>{number}</p>
+        </li>
+      ))}
+    </ul>
   )
 }
 
