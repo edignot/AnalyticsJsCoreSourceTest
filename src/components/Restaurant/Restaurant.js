@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { uid } from 'uid'
+import './Restaurant.css'
 
 const Restaurant = ({ restaurant }) => {
+  const [displayDetails, setDisplayDetails] = useState(false)
+
   const {
     id,
     name,
@@ -20,6 +23,7 @@ const Restaurant = ({ restaurant }) => {
   } = restaurant
 
   const genres = genreArray.map((genre) => <li key={uid()}>{genre}</li>)
+
   const tags = tagsArray.map((tag) => <li key={uid()}>{tag}</li>)
 
   return (
@@ -30,9 +34,12 @@ const Restaurant = ({ restaurant }) => {
         <p>{state}</p>
         <p>{telephone}</p>
         <ul>{genres}</ul>
-        <button>See More Details</button>
+        <button onClick={() => setDisplayDetails(!displayDetails)}>
+          See More Details
+        </button>
       </section>
-      <section>
+
+      <section className={displayDetails ? '' : 'hidden'}>
         <p>{`${address1} ${city} ${state} ${zip}`}</p>
         <p>{hours}</p>
         <a href={website} target='_blank'>
