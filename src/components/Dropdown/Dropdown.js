@@ -10,8 +10,17 @@ const Dropdown = ({ possibleOptions, title, type }) => {
   const dispatch = useDispatch()
 
   const handleSelectorChange = (e) => {
+    e.target.value === '' &&
+      type === 'genre' &&
+      dispatch(setGenreFilter(e.target.value))
+
+    e.target.value === '' &&
+      type === 'state' &&
+      dispatch(setStateFilter(e.target.value))
+
     type === 'genre' && dispatch(setGenreFilter(e.target.value))
     type === 'state' && dispatch(setStateFilter(e.target.value))
+
     dispatch(setCurrentPageNumber(1))
   }
 
@@ -22,7 +31,7 @@ const Dropdown = ({ possibleOptions, title, type }) => {
   ))
   return (
     <select onChange={handleSelectorChange}>
-      <option>{title}</option>
+      <option value=''>{title}</option>
       {options}
     </select>
   )
