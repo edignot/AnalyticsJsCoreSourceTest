@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getRestaurants } from '../../actions/restaurants'
 import Restaurant from '../Restaurant/Restaurant'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import Pagination from '../Pagination/Pagination'
 
 const Restaurants = () => {
   const dispatch = useDispatch()
 
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [restaurantsPerPage, setRestaurantsPerPage] = useState(10)
+  const [restaurantsPerPage] = useState(10)
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -33,7 +34,20 @@ const Restaurants = () => {
 
   const restaurantsToMap = filteredRestaurants || restaurants
 
-  const mappedRestaurants = restaurantsToMap.map((restaurant) => {
+  const indexOfLastRestaurant = currentPage * restaurantsPerPage
+  const indexOfFirstRestaurant = indexOfLastRestaurant - restaurantsPerPage
+  const currentRestaurants = restaurantsToMap.slice(
+    indexOfFirstRestaurant,
+    indexOfLastRestaurant,
+  )
+
+  console.log(currentRestaurants)
+
+  const paginateHandler = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const mappedRestaurants = currentRestaurants.map((restaurant) => {
     return <Restaurant key={uid()} restaurant={restaurant} />
   })
 
@@ -41,6 +55,11 @@ const Restaurants = () => {
     <>
       <div>{mappedRestaurants}</div>
       {loading && <LoadingSpinner asOverlay />}
+      <Pagination
+        restaurantsPerPage={restaurantsPerPage}
+        totalRestaurants={restaurantsToMap.length}
+        paginate={paginateHandler}
+      />
     </>
   )
 }
