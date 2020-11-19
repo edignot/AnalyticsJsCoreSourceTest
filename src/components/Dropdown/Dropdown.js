@@ -1,8 +1,9 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
   setStateFilter,
   setGenreFilter,
+  setAttireFilter,
   setCurrentPageNumber,
 } from '../../actions/session'
 
@@ -18,7 +19,12 @@ const Dropdown = ({ possibleOptions, title, type }) => {
       type === 'state' &&
       dispatch(setStateFilter(e.target.value))
 
+    e.target.value === '' &&
+      type === 'attire' &&
+      dispatch(setAttireFilter(e.target.value))
+
     type === 'genre' && dispatch(setGenreFilter(e.target.value))
+    type === 'attire' && dispatch(setAttireFilter(e.target.value))
     type === 'state' && dispatch(setStateFilter(e.target.value))
 
     dispatch(setCurrentPageNumber(1))
@@ -40,5 +46,3 @@ const Dropdown = ({ possibleOptions, title, type }) => {
 }
 
 export default Dropdown
-
-// Reset selector filter
