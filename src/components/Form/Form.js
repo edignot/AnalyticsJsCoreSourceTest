@@ -21,9 +21,9 @@ const Form = () => {
   const searchHandler = () => {
     const filteredRestaurants = restaurants.reduce((filtered, restaurant) => {
       if (
-        restaurant.name.includes(searchValue) ||
-        restaurant.city.includes(searchValue) ||
-        restaurant.genre.includes(searchValue)
+        restaurant.name.toUpperCase().includes(searchValue.toUpperCase()) ||
+        restaurant.city.toUpperCase().includes(searchValue.toUpperCase()) ||
+        restaurant.genre.toUpperCase().includes(searchValue.toUpperCase())
       ) {
         filtered.push(restaurant.id)
       }
