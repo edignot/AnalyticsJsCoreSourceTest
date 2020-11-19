@@ -1,8 +1,18 @@
-export default (filteredRestaurants = [], action) => {
+const sessionTemplate = {
+  filterApplied: false,
+  filteredRestaurants: [],
+}
+
+export default (session = sessionTemplate, action) => {
   switch (action.type) {
     case 'FILTER_RESTAURANTS':
-      return action.filteredRestaurants
+      return {
+        filterApplied: true,
+        filteredRestaurants: action.filteredRestaurants,
+      }
+    case 'CLEAR_FILTER':
+      return session
     default:
-      return filteredRestaurants
+      return session
   }
 }

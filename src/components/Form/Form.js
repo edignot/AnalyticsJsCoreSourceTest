@@ -15,13 +15,16 @@ const Form = () => {
   }
 
   const searchByInput = () => {
-    const filteredRestaurants = restaurants.filter(
-      (restaurant) =>
+    const filteredRestaurants = restaurants.reduce((filtered, restaurant) => {
+      if (
         restaurant.name.includes(searchValue) ||
         restaurant.city.includes(searchValue) ||
-        restaurant.genre.includes(searchValue),
-    )
-    console.log(filteredRestaurants)
+        restaurant.genre.includes(searchValue)
+      ) {
+        filtered.push(restaurant.id)
+      }
+      return filtered
+    }, [])
     dispatch(filterRestaurants(filteredRestaurants))
   }
 
