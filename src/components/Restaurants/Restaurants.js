@@ -16,17 +16,32 @@ const Restaurants = () => {
   }, [dispatch])
 
   const restaurants = useSelector((store) => store.restaurants)
+  const session = useSelector((store) => store.session)
 
-  const mappedRestaurants = restaurants.map((restaurant) => {
-    return (
-      <>
-        <Restaurant key={uid()} restaurant={restaurant} />
-        {loading && <LoadingSpinner asOverlay />}
-      </>
+  const mappedRestaurants =
+    !session.filteredRestaurants.length &&
+    restaurants.map((restaurant) => {
+      return <Restaurant key={uid()} restaurant={restaurant} />
+    })
+
+  const filteredRestaurants =
+    session.filterApplied &&
+    restaurants.filter((restaurant) =>
+      session.filteredRestaurants.includes(restaurant.id),
     )
-  })
 
-  return <div>{mappedRestaurants}</div>
+  const filteredMappedRestaurants =
+    filteredRestaurants.length &&
+    filteredRestaurants.map((restaurant) => {
+      return <Restaurant key={uid()} restaurant={restaurant} />
+    })
+
+  return (
+    <>
+      <div>{mappedRestaurants || filteredMappedRestaurants}</div>
+      {loading && <LoadingSpinner asOverlay />}
+    </>
+  )
 }
 
 export default Restaurants
