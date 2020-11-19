@@ -6,3 +6,8 @@ export const filterRestaurants = (filteredRestaurants) => ({
 export const clearFilter = () => ({
   type: 'CLEAR_FILTER',
 })
+
+export const setCurrentPageNumber = (currentPageNumber) => ({
+  type: 'SET_CURRENT_PAGE_NUMBER',
+  currentPageNumber,
+})

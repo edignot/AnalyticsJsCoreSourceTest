@@ -5,12 +5,16 @@ import { getRestaurants } from '../../actions/restaurants'
 import Restaurant from '../Restaurant/Restaurant'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import Pagination from '../Pagination/Pagination'
+import { setCurrentPageNumber } from '../../actions/session'
 
 const Restaurants = () => {
   const dispatch = useDispatch()
 
+  const restaurants = useSelector((store) => store.restaurants)
+
+  const session = useSelector((store) => store.session)
+
   const [loading, setLoading] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
   const [restaurantsPerPage] = useState(10)
 
   useEffect(() => {
@@ -22,10 +26,6 @@ const Restaurants = () => {
     fetchRestaurants()
   }, [dispatch])
 
-  const restaurants = useSelector((store) => store.restaurants)
-
-  const session = useSelector((store) => store.session)
-
   const filteredRestaurants =
     session.filterApplied &&
     restaurants.filter((restaurant) =>
@@ -34,17 +34,17 @@ const Restaurants = () => {
 
   const restaurantsToMap = filteredRestaurants || restaurants
 
-  const indexOfLastRestaurant = currentPage * restaurantsPerPage
+  const indexOfLastRestaurant = session.currentPageNumber * restaurantsPerPage
   const indexOfFirstRestaurant = indexOfLastRestaurant - restaurantsPerPage
   const currentRestaurants = restaurantsToMap.slice(
     indexOfFirstRestaurant,
     indexOfLastRestaurant,
   )
 
-  console.log(currentRestaurants)
+  console.log(session.currentPageNumber)
 
   const paginateHandler = (pageNumber) => {
-    setCurrentPage(pageNumber)
+    dispatch(setCurrentPageNumber(pageNumber))
   }
 
   const mappedRestaurants = currentRestaurants.map((restaurant) => {
