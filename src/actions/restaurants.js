@@ -9,6 +9,7 @@ export const getRestaurants = () => async (dispatch) => {
       const tagsArray = restaurant.tags.split(',')
       return {
         ...restaurant,
+        attire: restaurant.attire.toLowerCase(),
         genreArray,
         tagsArray,
       }
