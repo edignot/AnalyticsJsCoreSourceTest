@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { uid } from 'uid'
 import { useDispatch, useSelector } from 'react-redux'
 import { getRestaurants } from '../../actions/restaurants'
 import Restaurant from '../Restaurant/Restaurant'
@@ -19,7 +20,7 @@ const Restaurants = () => {
   const mappedRestaurants = restaurants.map((restaurant) => {
     return (
       <>
-        <Restaurant key={restaurant.id} restaurant={restaurant} />
+        <Restaurant key={uid()} restaurant={restaurant} />
         {loading && <LoadingSpinner asOverlay />}
       </>
     )
