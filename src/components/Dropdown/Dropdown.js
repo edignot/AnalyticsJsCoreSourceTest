@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   setStateFilter,
   setGenreFilter,
@@ -22,6 +22,7 @@ const Dropdown = ({ possibleOptions, title, type }) => {
     type === 'state' && dispatch(setStateFilter(e.target.value))
 
     dispatch(setCurrentPageNumber(1))
+    e.target.value = ''
   }
 
   const options = possibleOptions.map((option) => (
@@ -31,8 +32,10 @@ const Dropdown = ({ possibleOptions, title, type }) => {
   ))
   return (
     <select onChange={handleSelectorChange}>
-      <option value=''>{title}</option>
       {options}
+      <option selected='selected' value=''>
+        {title}
+      </option>
     </select>
   )
 }
