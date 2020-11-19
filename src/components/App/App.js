@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import React from 'react'
+import Layout from '../../components/Layout/Layout'
+import RestaurantsPage from '../../pages/RestaurantsPage/RestaurantsPage'
 import './App.css'
-import Restaurants from '../Restaurants/Restaurants'
-import Layout from '../Layout/Layout'
-import Form from '../Form/Form'
 
 function App() {
   return (
     <Layout>
-      <Form />
-      <Restaurants />
+      <RestaurantsPage />
     </Layout>
   )
 }

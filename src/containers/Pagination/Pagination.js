@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import './Pagination.css'
 
 const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
   const pageNumbers = []
@@ -21,3 +23,9 @@ const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
 }
 
 export default Pagination
+
+Pagination.propTypes = {
+  restaurantsPerPage: PropTypes.number,
+  totalRestaurants: PropTypes.number,
+  paginate: PropTypes.func,
+}

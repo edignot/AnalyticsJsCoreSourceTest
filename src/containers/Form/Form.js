@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
 import { clearSearch, filterRestaurants, clearAll } from '../../actions/session'
 import Dropdown from '../Dropdown/Dropdown'
+import './Form.css'
 
 const Form = () => {
   const dispatch = useDispatch()

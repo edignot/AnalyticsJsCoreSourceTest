@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { uid } from 'uid'
 import './Restaurant.css'
 
@@ -6,7 +7,6 @@ const Restaurant = ({ restaurant }) => {
   const [displayDetails, setDisplayDetails] = useState(false)
 
   const {
-    id,
     name,
     address1,
     city,
@@ -53,3 +53,7 @@ const Restaurant = ({ restaurant }) => {
 }
 
 export default Restaurant
+
+Restaurant.prototypes = {
+  restaurant: PropTypes.object,
+}
