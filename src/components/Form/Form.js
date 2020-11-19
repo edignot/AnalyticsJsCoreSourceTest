@@ -79,8 +79,16 @@ const Form = () => {
         </button>
         <button onClick={clearHandler}>CLEAR</button>
       </section>
-      <Dropdown possibleOptions={[]} title='Filter by State' />
-      <Dropdown possibleOptions={[]} title='Filter by Genre' />
+      <Dropdown
+        possibleOptions={stateFilterOptions}
+        title='Filter by State'
+        type='state'
+      />
+      <Dropdown
+        possibleOptions={genreFilterOptions}
+        title='Filter by Genre'
+        type='genre'
+      />
     </section>
   )
 }
