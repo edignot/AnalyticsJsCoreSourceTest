@@ -13,7 +13,7 @@ const Restaurants = () => {
   const restaurants = useSelector((store) => store.restaurants)
 
   const mappedRestaurants = restaurants.map((restaurant) => {
-    return <Restaurant key={restaurant.id} />
+    return <Restaurant key={restaurant.id} restaurant={restaurant} />
   })
 
   return <div>{mappedRestaurants}</div>
