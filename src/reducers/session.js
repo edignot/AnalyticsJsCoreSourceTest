@@ -1,5 +1,5 @@
 const sessionTemplate = {
-  filterApplied: false,
+  searchApplied: false,
   filteredRestaurants: [],
   currentPageNumber: 1,
 }
@@ -8,13 +8,13 @@ export default (session = sessionTemplate, action) => {
   switch (action.type) {
     case 'FILTER_RESTAURANTS':
       return {
-        filterApplied: true,
+        searchApplied: true,
         filteredRestaurants: action.filteredRestaurants,
         currentPageNumber: 1,
       }
-    case 'CLEAR_FILTER':
+    case 'CLEAR_SEARCH':
       return {
-        filterApplied: false,
+        searchApplied: false,
         filteredRestaurants: [],
         currentPageNumber: 1,
       }

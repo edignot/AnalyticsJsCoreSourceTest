@@ -27,7 +27,7 @@ const Restaurants = () => {
   }, [dispatch])
 
   const filteredRestaurants =
-    session.filterApplied &&
+    session.searchApplied &&
     restaurants.filter((restaurant) =>
       session.filteredRestaurants.includes(restaurant.id),
     )

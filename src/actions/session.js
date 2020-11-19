@@ -3,8 +3,8 @@ export const filterRestaurants = (filteredRestaurants) => ({
   filteredRestaurants,
 })
 
-export const clearFilter = () => ({
-  type: 'CLEAR_FILTER',
+export const clearSearch = () => ({
+  type: 'CLEAR_SEARCH',
 })
 
 export const setCurrentPageNumber = (currentPageNumber) => ({
