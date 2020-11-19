@@ -1,0 +1,79 @@
+.header {
+  background-color: var(--light);
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  opacity: 0.96;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.logo-wrapper {
+  width: 100%;
+}
+
+.header.shadow {
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+}
+
+.header.hidden {
+  transform: translateY(-110%);
+}
+
+h1 {
+  align-self: center;
+  font-weight: 100;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.logo {
+  height: 100%;
+  pointer-events: none;
+  padding: 0.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo.left {
+    animation: logo-spin-left infinite 20s linear;
+  }
+  .logo.middle {
+    animation: logo-spin-middle infinite 20s linear;
+  }
+  .logo.right {
+    animation: logo-spin-right infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-spin-middle {
+  from {
+    transform: rotate(-100deg);
+  }
+  to {
+    transform: rotate(260deg);
+  }
+}
+
+@keyframes logo-spin-right {
+  from {
+    transform: rotate(-200deg);
+  }
+  to {
+    transform: rotate(160deg);
+  }
+}
