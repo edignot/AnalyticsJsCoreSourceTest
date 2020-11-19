@@ -18,6 +18,13 @@ export default (session = sessionTemplate, action) => {
       }
     case 'CLEAR_SEARCH':
       return {
+        ...session,
+        searchApplied: false,
+        filteredRestaurants: [],
+        currentPageNumber: 1,
+      }
+    case 'CLEAR_ALL':
+      return {
         searchApplied: false,
         filteredRestaurants: [],
         currentPageNumber: 1,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
-import { clearSearch, filterRestaurants } from '../../actions/session'
+import { clearSearch, filterRestaurants, clearAll } from '../../actions/session'
 import Dropdown from '../Dropdown/Dropdown'
 
 const Form = () => {
@@ -35,7 +35,7 @@ const Form = () => {
 
   const clearHandler = () => {
     setSearchValue('')
-    dispatch(clearSearch())
+    dispatch(clearAll())
   }
 
   const restaurantsToFilter = session.searchApplied
