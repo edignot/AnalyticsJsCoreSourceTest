@@ -14,7 +14,7 @@ const Form = () => {
     setSearchValue(e.target.value)
   }
 
-  const searchByInput = () => {
+  const searchHandler = () => {
     const filteredRestaurants = restaurants.reduce((filtered, restaurant) => {
       if (
         restaurant.name.includes(searchValue) ||
@@ -28,6 +28,10 @@ const Form = () => {
     dispatch(filterRestaurants(filteredRestaurants))
   }
 
+  const clearHandler = () => {
+    dispatch(clearFilter())
+  }
+
   return (
     <section>
       <section>
@@ -37,10 +41,10 @@ const Form = () => {
           placeholder='Search by restaurant name | city | genre'
           onChange={handleChange}
         />
-        <button onClick={searchByInput}>
+        <button onClick={searchHandler}>
           <BiSearch />
         </button>
-        <button onClick={() => dispatch(clearFilter())}>CLEAR</button>
+        <button onClick={clearHandler}>CLEAR</button>
       </section>
     </section>
   )

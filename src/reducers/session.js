@@ -11,7 +11,10 @@ export default (session = sessionTemplate, action) => {
         filteredRestaurants: action.filteredRestaurants,
       }
     case 'CLEAR_FILTER':
-      return session
+      return {
+        filterApplied: false,
+        filteredRestaurants: [],
+      }
     default:
       return session
   }
