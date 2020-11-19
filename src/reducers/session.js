@@ -4,6 +4,7 @@ const sessionTemplate = {
   currentPageNumber: 1,
   genreFilter: '',
   stateFilter: '',
+  attireFilter: '',
 }
 
 export default (session = sessionTemplate, action) => {
@@ -22,6 +23,7 @@ export default (session = sessionTemplate, action) => {
         currentPageNumber: 1,
         genreFilter: '',
         stateFilter: '',
+        attireFilter: '',
       }
     case 'SET_CURRENT_PAGE_NUMBER':
       return {
@@ -37,6 +39,11 @@ export default (session = sessionTemplate, action) => {
       return {
         ...session,
         stateFilter: action.stateFilter,
+      }
+    case 'SET_ATTIRE_FILTER':
+      return {
+        ...session,
+        attireFilter: action.attireFilter,
       }
     default:
       return session

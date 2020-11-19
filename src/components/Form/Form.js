@@ -62,6 +62,14 @@ const Form = () => {
     [],
   )
 
+  const attireFilterOptions = restaurantsToFilter.reduce(
+    (options, restaurant) => {
+      !options.includes(restaurant.attire) && options.push(restaurant.attire)
+      return options
+    },
+    [],
+  )
+
   return (
     <section>
       <section>
@@ -86,6 +94,11 @@ const Form = () => {
         possibleOptions={genreFilterOptions}
         title='Filter by Genre'
         type='genre'
+      />
+      <Dropdown
+        possibleOptions={attireFilterOptions}
+        title='Filter by Attire'
+        type='attire'
       />
     </section>
   )

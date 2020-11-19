@@ -21,3 +21,8 @@ export const setStateFilter = (stateFilter) => ({
   type: 'SET_STATE_FILTER',
   stateFilter,
 })
+
+export const setAttireFilter = (attireFilter) => ({
+  type: 'SET_ATTIRE_FILTER',
+  attireFilter,
+})
