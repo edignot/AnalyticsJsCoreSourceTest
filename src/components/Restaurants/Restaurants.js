@@ -28,11 +28,11 @@ const Restaurants = () => {
 
   let filteredRestaurants
 
-  if (session.searchApplied && session.genreFilter && session.stateFilter) {
-    const searchMatches = restaurants.filter((restaurant) =>
-      session.filteredRestaurants.includes(restaurant.id),
-    )
+  const searchMatches = restaurants.filter((restaurant) =>
+    session.filteredRestaurants.includes(restaurant.id),
+  )
 
+  if (session.searchApplied && session.genreFilter && session.stateFilter) {
     filteredRestaurants = searchMatches.filter((restaurant) => {
       if (
         restaurant.state === session.stateFilter &&
@@ -41,8 +41,34 @@ const Restaurants = () => {
         return restaurant
       }
     })
+  } else if (session.searchApplied && session.genreFilter) {
+    filteredRestaurants = searchMatches.filter((restaurant) =>
+      restaurant.genreArray.includes(session.genreFilter),
+    )
+  } else if (session.searchApplied && session.stateFilter) {
+    filteredRestaurants = searchMatches.filter(
+      (restaurant) => restaurant.state === session.stateFilter,
+    )
+  } else if (session.genreFilter && session.stateFilter) {
+    filteredRestaurants = restaurants.filter((restaurant) => {
+      if (
+        restaurant.state === session.stateFilter &&
+        restaurant.genreArray.includes(session.genreFilter)
+      ) {
+        return restaurant
+      }
+    })
+  } else if (session.searchApplied) {
+    filteredRestaurants = searchMatches
+  } else if (session.genreFilter) {
+    filteredRestaurants = restaurants.filter((restaurant) =>
+      restaurant.genreArray.includes(session.genreFilter),
+    )
+  } else if (session.stateFilter) {
+    filteredRestaurants = restaurants.filter(
+      (restaurant) => restaurant.state === session.stateFilter,
+    )
   }
-
   const restaurantsToMap = filteredRestaurants || restaurants
 
   const indexOfLastRestaurant = session.currentPageNumber * restaurantsPerPage
