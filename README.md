@@ -1,6 +1,6 @@
 # Restaurants Search Engine
 
-## https://edignot.com/
+## https://restaurantssearchengine.netlify.app/
 
 ![Restaurants Search Engine](/restaurantsmockup.jpg)
 
@@ -31,6 +31,10 @@ search value is present.
 - [x] A user can click table row to see additional information
 - [x] A user can also filter by attire and combine attire filter with other filters and search
 
+## Kanban Project Board
+  Used GitHub Projects to track progress of development
+  https://github.com/edignot/Restaurants/projects/1
+
 ## Tech Stack:
 
 #### `Javascript | ES6`
@@ -48,6 +52,10 @@ I prefer Redux, because it makes application more scalable in the future if need
 #### `Axios`
 
 I prefer using Axios rather that Fetch, because Axios transforms JSON data automatically, so syntax is a bit cleaner.
+
+#### `Netlify CI`
+
+Deployed on Netlify https://restaurantssearchengine.netlify.app/ and automatically builds after master updates
 
 #### `Jest | React Testing Library`
 
@@ -308,5 +316,3 @@ export const setGenreFilter = (genreFilter) => ({
 
 ## Contributors:
 - [Edita Ignot](https://github.com/edignot)
-
-
