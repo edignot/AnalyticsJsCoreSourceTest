@@ -27,7 +27,7 @@ search value is present.
 - [x] If any of the filters do not return any restaurants, the UI should indicate that no results were found.
 
 ## Completed Strech Goals:
-- [ ] CI/CD
+- [x] CI/CD
 - [x] Unit Testing ( +some integration testing )
 - [x] A user can click table row to see additional information
 - [x] A user can also filter by attire and combine attire filter with other filters and search
