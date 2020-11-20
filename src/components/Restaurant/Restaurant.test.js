@@ -4,77 +4,14 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import Restaurant from './Restaurant'
+import { initialStateTestData } from '../../test-data'
 
 describe('Restaurant', () => {
   let RestaurantComponent, store, mockStore, initialState, restaurant
-  beforeEach(() => {
-    initialState = {
-      restaurants: [
-        {
-          address1: 'address1',
-          attire: 'attire1',
-          city: 'city1',
-          genre: 'genre1',
-          genreArray: ['genre A', 'genre B'],
-          hours: 'hours',
-          id: '1',
-          lat: '1',
-          long: '1',
-          name: 'name1',
-          state: 'state1',
-          tags: 'tagA,tagB',
-          tagsArray: ['tagA', 'tagB'],
-          telephone: '1',
-          website: 'website1',
-          zip: '1',
-        },
-        {
-          address1: 'address2',
-          attire: 'attire2',
-          city: 'city2',
-          genre: 'genre2',
-          genreArray: ['genre A', 'genre B'],
-          hours: 'hours',
-          id: '2',
-          lat: '2',
-          long: '2',
-          name: 'name2',
-          state: 'state2',
-          tags: 'tagA,tagB',
-          tagsArray: ['tagA', 'tagB'],
-          telephone: '2',
-          website: 'website2',
-          zip: '2',
-        },
-      ],
-      session: {
-        searchApplied: false,
-        filteredRestaurants: [],
-        currentPageNumber: 1,
-        genreFilter: '',
-        stateFilter: '',
-        attireFilter: '',
-      },
-    }
 
-    restaurant = {
-      address1: 'address1',
-      attire: 'attire1',
-      city: 'city1',
-      genre: 'genre1',
-      genreArray: ['genre A', 'genre B'],
-      hours: 'hours',
-      id: '1',
-      lat: '1',
-      long: '1',
-      name: 'name1',
-      state: 'state1',
-      tags: 'tagA,tagB',
-      tagsArray: ['tagA', 'tagB'],
-      telephone: '1',
-      website: 'website1',
-      zip: '1',
-    }
+  beforeEach(() => {
+    initialState = initialStateTestData
+    restaurant = initialStateTestData.restaurants[0]
 
     mockStore = configureStore()
     store = mockStore(initialState)
@@ -89,5 +26,31 @@ describe('Restaurant', () => {
   it('Restaurant Component should successfully render', () => {
     const { getAllByTestId, getByText } = RestaurantComponent
     expect(getByText(restaurant.name)).toBeInTheDocument()
+
+    expect(
+      getByText(`${restaurant.city} , ${restaurant.state}`),
+    ).toBeInTheDocument()
+
+    expect(getByText(`+1 ${restaurant.telephone}`)).toBeInTheDocument()
+
+    for (const genre of restaurant.genreArray) {
+      expect(getByText(genre)).toBeInTheDocument()
+    }
+
+    expect(
+      getByText(
+        `${restaurant.address1} ${restaurant.city} ${restaurant.state} ${restaurant.zip}`,
+      ),
+    ).toBeInTheDocument()
+
+    expect(getByText(restaurant.hours)).toBeInTheDocument()
+
+    expect(getByText(restaurant.website)).toBeInTheDocument()
+
+    for (const tag of restaurant.tagsArray) {
+      expect(getByText(`# ${tag}`)).toBeInTheDocument()
+    }
+
+    expect(getByText(restaurant.attire)).toBeInTheDocument()
   })
 })
