@@ -1,6 +1,6 @@
 # Restaurants Search Engine
 
-## https://edignot.com/
+## https://restaurantssearchengine.netlify.app/
 
 ## [Kanban Project Board](https://github.com/edignot/Restaurants/projects/1)
 
