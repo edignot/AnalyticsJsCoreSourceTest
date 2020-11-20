@@ -26,10 +26,18 @@ search value is present.
 
 ## Completed Strech Goals:
 - [ ] CI/CD
-- [ ] Unit Testing
-- [ ] Integration Testing
+- [x] Unit Testing ( +some integration testing )
 - [x] A user can click table row to see additional information
 - [x] A user can also filter by attire and combine attire filter with other filters and search
+
+## Future Goals
+- [ ] Add more integration tests, test button click, search, filters...
+- [ ] Display mini-map when more information is showed
+- [ ] Add filter by tags functionality and combine it with other filters
+- [ ] Ability to use filters by clicking on tag or genre directly
+- [ ] Add some media queries, make the app fully responsive
+- [ ] Utilize PWA
+- [ ] Refactor combining filters functionality or move it to separate components
 
 ## Kanban Project Board
   Used GitHub Projects to track progress of development
