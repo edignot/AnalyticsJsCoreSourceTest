@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { uid } from 'uid'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import './Restaurant.css'
 
 const Restaurant = ({ restaurant }) => {
@@ -34,8 +35,15 @@ const Restaurant = ({ restaurant }) => {
         <p>{state}</p>
         <p>{telephone}</p>
         <ul>{genres}</ul>
-        <button onClick={() => setDisplayDetails(!displayDetails)}>
-          See More Details
+        <button
+          className='display-details-button'
+          onClick={() => setDisplayDetails(!displayDetails)}
+        >
+          {displayDetails ? (
+            <IoIosArrowUp className='display-details-icon' />
+          ) : (
+            <IoIosArrowDown className='display-details-icon' />
+          )}
         </button>
       </section>
 

@@ -1,8 +1,25 @@
 .restaurants-container {
-  border: 2px solid red;
 }
 
 .restaurants-pagination-container {
   width: 100%;
   height: 100%;
+}
+
+.display-details-button {
+  border: none;
+  background-color: transparent;
+  padding: 0.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.display-details-icon {
+  font-size: 2rem;
+  color: var(--medium);
+}
+
+.display-details-icon:hover {
+  color: var(--dark);
+  transition: 0.3s;
 }
