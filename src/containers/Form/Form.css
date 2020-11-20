@@ -1,0 +1,25 @@
+.search-filter-form-container {
+  margin: 1.5rem;
+  padding: 1rem 1rem 0 1rem;
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+}
+
+.clear-all-filter-button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--medium);
+  background-color: var(--medium-dark);
+  color: var(--light);
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+}
+
+.clear-all-filter-button:hover {
+  background-color: var(--dark);
+  cursor: pointer;
+  transition: 0.3s;
+}

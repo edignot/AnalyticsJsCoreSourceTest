@@ -72,7 +72,7 @@ const Form = () => {
   )
 
   return (
-    <section>
+    <section className='search-filter-form-container'>
       <section>
         <input
           name='Search by restaurant name | city | genre'
@@ -84,23 +84,31 @@ const Form = () => {
         <button onClick={searchHandler}>
           <BiSearch />
         </button>
-        <button onClick={clearHandler}>CLEAR</button>
       </section>
-      <Dropdown
-        possibleOptions={stateFilterOptions}
-        title='Filter by State'
-        type='state'
-      />
-      <Dropdown
-        possibleOptions={genreFilterOptions}
-        title='Filter by Genre'
-        type='genre'
-      />
-      <Dropdown
-        possibleOptions={attireFilterOptions}
-        title='Filter by Attire'
-        type='attire'
-      />
+
+      <section>
+        <Dropdown
+          possibleOptions={stateFilterOptions}
+          title='Filter by State'
+          type='state'
+        />
+        <Dropdown
+          possibleOptions={genreFilterOptions}
+          title='Filter by Genre'
+          type='genre'
+        />
+        <Dropdown
+          possibleOptions={attireFilterOptions}
+          title='Filter by Attire'
+          type='attire'
+        />
+      </section>
+
+      <section>
+        <button onClick={clearHandler} className='clear-all-filter-button'>
+          clear all filters
+        </button>
+      </section>
     </section>
   )
 }
