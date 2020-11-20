@@ -4,8 +4,73 @@
 
 .restaurant-container {
   margin: 1.5rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   border-radius: 5px;
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
   background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+}
+
+.default-restaurant-info-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.default-restaurant-main-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.default-restaurant-main-info p {
+  min-width: 33%;
+  max-width: 100%;
+  text-align: center;
+  align-self: center;
+}
+
+.genres-list,
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.genres-item,
+.tags-item {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--medium);
+  background-color: var(--extra-light);
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+}
+
+.extra-restaurant-info-container {
+  padding-bottom: 1rem;
+}
+
+.display-details-button {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.display-details-icon {
+  font-size: 2rem;
+  color: var(--medium);
+}
+
+.display-details-icon:hover {
+  color: var(--dark);
+  transition: 0.3s;
+}
+
+.phone-number-wrapper {
+  display: flex;
+  justify-content: center;
 }
