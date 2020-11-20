@@ -228,8 +228,8 @@ export const fetchRestaurants = () =>
 ```
 ### Redux
   ### Reducers
-  -[Session Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
-  -[Restaurants Data Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+  - [Session Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
+  - [Restaurants Data Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
 ```
 export default (restaurants = [], action) => {
   switch (action.type) {
