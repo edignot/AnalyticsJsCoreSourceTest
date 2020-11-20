@@ -301,8 +301,44 @@ export const setGenreFilter = (genreFilter) => ({
 ```
 ### Testing
   #### Redux Testing
-   - [Action Creators]()
-   - [Reducers]()
+   - [Session Action Creators](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
+```
+...
+  it('should have a type FILTER_RESTAURANTS', () => {
+    const action = {
+      type: 'FILTER_RESTAURANTS',
+      filteredRestaurants,
+    }
+    const result = actions.filterRestaurants(filteredRestaurants)
+    expect(result).toEqual(action)
+  })
+...
+  it('should have a type SET_STATE_FILTER', () => {
+    const action = {
+      type: 'SET_STATE_FILTER',
+      stateFilter,
+    }
+    const result = actions.setStateFilter(stateFilter)
+    expect(result).toEqual(action)
+  })
+...
+```
+   - [Reducers](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
+```
+...
+  it('should return session state with updated genre filter', () => {
+    const action = {
+      type: 'SET_GENRE_FILTER',
+      genreFilter: sessionTestData.genreFilter,
+    }
+    const result = session(sessionState, action)
+    expect(result).toEqual({
+      ...sessionState,
+      genreFilter: sessionTestData.genreFilter,
+    })
+  })
+...
+```
   #### React Components
    - [Unit Testing]()
    - [Integrations Testing]()
