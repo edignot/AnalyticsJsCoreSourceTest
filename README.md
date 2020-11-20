@@ -70,7 +70,7 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
 
 ### Testing
   #### Redux Testing
-   - [Session Action Creators](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
+   - [Session Action Creators test file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
 ```
 ...
   it('should have a type FILTER_RESTAURANTS', () => {
@@ -92,7 +92,7 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
   })
 ...
 ```
-   - [Reducers](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
+   - [Reducers test file](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
 ```
 ...
   it('should return session state with updated genre filter', () => {
@@ -109,7 +109,7 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
 ...
 ```
   #### React Components
-   - [Restaurant](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.test.js)
+   - [Restaurant test file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.test.js)
 ```
 ...
 describe('Restaurant', () => {
@@ -161,9 +161,9 @@ describe('Restaurant', () => {
   })
 })
 ```
-   - [Layout](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.test.js)
-   - [App](https://github.com/edignot/Restaurants/blob/master/src/components/App/App.test.js)
-   - [Dropdown](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.test.js)
+   - [Layout test file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.test.js)
+   - [App test file](https://github.com/edignot/Restaurants/blob/master/src/components/App/App.test.js)
+   - [Dropdown test file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.test.js)
    - []()
    - []()
    - []()
@@ -172,7 +172,7 @@ describe('Restaurant', () => {
 
 ### React Components
   #### Pages ( Right now this app had only one page, so no React Router is used )
-  - [Restaurants Page](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
+  - [Restaurants Page component file](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
 ```
 import React from 'react'
 import Restaurants from '../../containers/Restaurants/Restaurants'
@@ -191,7 +191,7 @@ const RestaurantsPage = () => {
 export default RestaurantsPage
 ```
   #### Containers ( uses global Redux store )
-  - [Seacrch and Filters Form](https://github.com/edignot/Restaurants/blob/master/src/containers/Form/Form.js)
+  - [Seacrch and Filters Form component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Form/Form.js)
 ```
 ...
   const searchHandler = () => {
@@ -209,7 +209,7 @@ export default RestaurantsPage
   }
 ...
 ```
-  - [Pagination](https://github.com/edignot/Restaurants/blob/master/src/containers/Pagination/Pagination.js)
+  - [Pagination component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Pagination/Pagination.js)
 ```
 ...
 const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
@@ -236,7 +236,7 @@ const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
 }
 ...
 ```
-  - [Restaurants](https://github.com/edignot/Restaurants/blob/master/src/containers/Restaurants/Restaurants.js)
+  - [Restaurants component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Restaurants/Restaurants.js)
 ```
 ...
 const Restaurants = () => {
@@ -259,7 +259,7 @@ const Restaurants = () => {
   }, [dispatch])
 ...
 ```
-  - [Dropdown Filter](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.js)
+  - [Dropdown Filter component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.js)
 ```
 ...
 const Dropdown = ({ possibleOptions, title, type }) => {
@@ -289,7 +289,7 @@ const Dropdown = ({ possibleOptions, title, type }) => {
 ```
   #### Components ( don't use global Redux store )
   - [ALL COMPONENTS](https://github.com/edignot/Restaurants/tree/master/src/components)
-    - e.g. [Layout (Includes Header and Footer and renders children any components](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.js)
+    - e.g. [Layout (Includes Header and Footer and renders children any components) component file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.js)
 ```
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -312,7 +312,7 @@ Layout.propTypes = {
   children: PropTypes.node,
 }
 ```
-   - e.g. [Restaurant Card](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.js)
+   - e.g. [Restaurant Card component file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.js)
 ```
   const genres = genreArray.map((genre) => (
     <li key={uid()} className='genres-item'>
@@ -321,7 +321,7 @@ Layout.propTypes = {
   ))
 ```
 ### Api Calls
-  - [Api](https://github.com/edignot/Restaurants/blob/master/src/api/index.js)
+  - [Api calls file](https://github.com/edignot/Restaurants/blob/master/src/api/index.js)
 ```
 import axios from 'axios'
 
@@ -338,8 +338,8 @@ export const fetchRestaurants = () =>
 ```
 ### Redux
   ### Reducers
-  - [Session Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
-  - [Restaurants Data Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+  - [Session Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
+  - [Restaurants Data Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
 ```
 export default (restaurants = [], action) => {
   switch (action.type) {
@@ -351,7 +351,7 @@ export default (restaurants = [], action) => {
 }
 ```
   ### Action Creators
-  -[Restaurants Actions with Redux Thunk](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+  -[Restaurants Actions with Redux Thunk file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
 ```
 import * as api from '../api'
 
@@ -383,7 +383,7 @@ export const getRestaurants = () => async (dispatch) => {
   }
 }
 ```
-  -[Session Actions](https://github.com/edignot/Restaurants/blob/master/src/actions/session.js)
+  -[Session Actions file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.js)
 ```
 ...
 export const clearAll = () => ({
