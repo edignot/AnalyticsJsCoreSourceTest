@@ -32,7 +32,8 @@
 }
 
 .genres-list,
-.tags-list {
+.tags-list,
+.attire-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -40,7 +41,8 @@
 }
 
 .genres-item,
-.tags-item {
+.tags-item,
+.attire-item {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 5px;
@@ -49,8 +51,18 @@
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
 }
 
+.attire-item {
+  background-color: var(--medium);
+  color: var(--extra-light);
+}
+
 .extra-restaurant-info-container {
   padding-bottom: 1rem;
+}
+
+.extra-restaurant-info-item {
+  padding-bottom: 0.5rem;
+  color: var(--dark);
 }
 
 .display-details-button {

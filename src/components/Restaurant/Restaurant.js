@@ -32,7 +32,7 @@ const Restaurant = ({ restaurant }) => {
 
   const tags = tagsArray.map((tag) => (
     <li key={uid()} className='tags-item'>
-      {tag}
+      {`# ${tag}`}
     </li>
   ))
 
@@ -66,13 +66,19 @@ const Restaurant = ({ restaurant }) => {
           displayDetails ? 'extra-restaurant-info-container' : 'hidden'
         }
       >
-        <p>{`${address1} ${city} ${state} ${zip}`}</p>
-        <p>{hours}</p>
-        <a href={website} target='_blank'>
+        <p className='extra-restaurant-info-item'>{`${address1} ${city} ${state} ${zip}`}</p>
+        <p className='extra-restaurant-info-item'>{hours}</p>
+        <a
+          className='extra-restaurant-info-item'
+          href={website}
+          target='_blank'
+        >
           {website}
         </a>
         <ul className='tags-list'>{tags}</ul>
-        <p>{attire}</p>
+        <section className='attire-list'>
+          <p className='attire-item'>{attire}</p>
+        </section>
       </section>
     </section>
   )
