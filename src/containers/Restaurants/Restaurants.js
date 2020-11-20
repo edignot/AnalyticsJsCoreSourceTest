@@ -203,7 +203,13 @@ const Restaurants = () => {
 
   return (
     <section className='restaurants-pagination-container'>
-      <section className='restaurants-container'>{mappedRestaurants}</section>
+      <section className='restaurants-container'>
+        {mappedRestaurants.length ? (
+          mappedRestaurants
+        ) : (
+          <p>No restaurants found... Please reset or update some filters.</p>
+        )}
+      </section>
       {loading && <LoadingSpinner asOverlay />}
       <Pagination
         restaurantsPerPage={restaurantsPerPage}
