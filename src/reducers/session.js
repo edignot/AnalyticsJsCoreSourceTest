@@ -7,7 +7,7 @@ const sessionTemplate = {
   attireFilter: '',
 }
 
-export default (session = sessionTemplate, action) => {
+export const session = (session = sessionTemplate, action) => {
   switch (action.type) {
     case 'FILTER_RESTAURANTS':
       return {

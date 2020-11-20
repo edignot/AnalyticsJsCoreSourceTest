@@ -1,7 +1,7 @@
-export default (restaurants = [], action) => {
+export const restaurants = (restaurants = [], action) => {
   switch (action.type) {
     case 'FETCH_RESTAURANTS':
-      return action.payload
+      return action.restaurantsSortedByName
     default:
       return restaurants
   }
