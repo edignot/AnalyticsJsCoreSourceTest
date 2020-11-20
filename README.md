@@ -8,7 +8,7 @@
 This is a simple one page React Application that pull restaurant data from a single API, displays all the data in the table and allows users to search restaurants by either name, state or genre. All filters and search can be applied separately or combined together.
 
 #### App presentation video:
-[![Video App Presentation](/restaurants.jpg)](https://vimeo.com/481528645) 
+[![Video App Presentation](/restaurants.jpg | width=500)](https://vimeo.com/481528645) 
 
 ## Completed MVP User Stories:
 - [x] A user should be able to see a table with the name, city, state, phone number, and genres for each restaurant.
