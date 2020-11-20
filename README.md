@@ -30,31 +30,33 @@ search value is present.
 
 ## Tech Stack:
 
-#### Javascript | ES6
+#### `Javascript | ES6`
 
 I used multiple array prototypes e.g. reduce, map, forEach... to convert data as needed. Also many other ES6 features like object restructuring or arrow functions.
 
-#### React | React Hooks
+#### `React | React Hooks`
 
 I always choose React together with React Hooks, that allows me to use only functional components.
 
-#### Redux | Redux Thunk | Redux Hooks
+#### `Redux | Redux Thunk | Redux Hooks`
 
 I prefer Redux, because it makes application more scalable in the future if needed. Redux setup is relatively easy and low time consuming, especially when utilizing Redux Hooks. I have used Redux Thunk to make it easier to dispatch action that makes a network request.
 
-#### Axios
+#### `Axios`
 
 I prefer using Axios rather that Fetch, because Axios transforms JSON data automatically, so syntax is a bit cleaner.
 
-#### Jest | React Testing Library
+#### `Jest | React Testing Library`
 
 I ussually add unit as well as integration tests for each project I'm building. This time I mostly unit tested and only added a few integrations tests, because of short timeframe. I'll keep working on the tests in the future
 
-#### CSS
+#### `CSS`
 
 My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and other functionalities. But due to short timeframe given for this code challenge I decided to style my app with plain CSS. I was still able to use CSS variables for colors and plan to add more varianbles for constants or switch to SCSS in the future.
 
-#### Travis CI
+#### `Travis CI`
+
+---
 
 ## Development Instructions:
 - clone repo 
