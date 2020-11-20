@@ -7,6 +7,7 @@ describe('Reducers', () => {
     sessionTestData,
     initialRestaurantsState,
     initialSessionState
+
   beforeEach(() => {
     initialRestaurantsState = []
     initialSessionState = {
@@ -56,5 +57,14 @@ describe('Reducers', () => {
         zip: '2',
       },
     ]
+  })
+
+  it('should return restaurants state with updated restaurants info', () => {
+    const action = {
+      type: 'FETCH_RESTAURANTS',
+      restaurantsSortedByName: restaurantsTestData,
+    }
+    const result = restaurants(initialRestaurantsState, action)
+    expect(result).toEqual(restaurantsTestData)
   })
 })
