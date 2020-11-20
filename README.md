@@ -316,5 +316,3 @@ export const setGenreFilter = (genreFilter) => ({
 
 ## Contributors:
 - [Edita Ignot](https://github.com/edignot)
-
-

@@ -21,7 +21,7 @@ export const getRestaurants = () => async (dispatch) => {
 
     dispatch({
       type: 'FETCH_RESTAURANTS',
-      payload: restaurantsSortedByName,
+      restaurantsSortedByName,
     })
   } catch (error) {
     console.log(error)
