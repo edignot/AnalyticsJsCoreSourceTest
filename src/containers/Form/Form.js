@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
-import { clearSearch, filterRestaurants } from '../../actions/session'
+import { clearSearch, filterRestaurants, clearAll } from '../../actions/session'
 import Dropdown from '../Dropdown/Dropdown'
+import './Form.css'
 
 const Form = () => {
   const dispatch = useDispatch()
@@ -33,9 +34,13 @@ const Form = () => {
     dispatch(filterRestaurants(filteredRestaurants))
   }
 
+  const handleKeyDown = (e) => {
+    e.key === 'Enter' && searchHandler()
+  }
+
   const clearHandler = () => {
     setSearchValue('')
-    dispatch(clearSearch())
+    dispatch(clearAll())
   }
 
   const restaurantsToFilter = session.searchApplied
@@ -71,35 +76,45 @@ const Form = () => {
   )
 
   return (
-    <section>
-      <section>
+    <section className='search-filter-form-container'>
+      <section className='search-input-wrapper'>
         <input
           name='Search by restaurant name | city | genre'
           type='text'
           placeholder='Search by restaurant name | city | genre'
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           value={searchValue}
+          className='search-input'
         />
-        <button onClick={searchHandler}>
+        <button onClick={searchHandler} className='search-button'>
           <BiSearch />
         </button>
-        <button onClick={clearHandler}>CLEAR</button>
       </section>
-      <Dropdown
-        possibleOptions={stateFilterOptions}
-        title='Filter by State'
-        type='state'
-      />
-      <Dropdown
-        possibleOptions={genreFilterOptions}
-        title='Filter by Genre'
-        type='genre'
-      />
-      <Dropdown
-        possibleOptions={attireFilterOptions}
-        title='Filter by Attire'
-        type='attire'
-      />
+
+      <section className='filters-wrapper'>
+        <Dropdown
+          possibleOptions={stateFilterOptions}
+          title='Filter by State'
+          type='state'
+        />
+        <Dropdown
+          possibleOptions={genreFilterOptions}
+          title='Filter by Genre'
+          type='genre'
+        />
+        <Dropdown
+          possibleOptions={attireFilterOptions}
+          title='Filter by Attire'
+          type='attire'
+        />
+      </section>
+
+      <section>
+        <button onClick={clearHandler} className='clear-all-filter-button'>
+          clear all filters
+        </button>
+      </section>
     </section>
   )
 }

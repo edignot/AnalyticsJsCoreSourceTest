@@ -7,6 +7,10 @@ export const clearSearch = () => ({
   type: 'CLEAR_SEARCH',
 })
 
+export const clearAll = () => ({
+  type: 'CLEAR_ALL',
+})
+
 export const setCurrentPageNumber = (currentPageNumber) => ({
   type: 'SET_CURRENT_PAGE_NUMBER',
   currentPageNumber,

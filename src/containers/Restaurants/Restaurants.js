@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { uid } from 'uid'
 import { useDispatch, useSelector } from 'react-redux'
 import { getRestaurants } from '../../actions/restaurants'
-import Restaurant from '../Restaurant/Restaurant'
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import Restaurant from '../../components/Restaurant/Restaurant'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import Pagination from '../Pagination/Pagination'
 import { setCurrentPageNumber } from '../../actions/session'
+import './Restaurants.css'
 
 const Restaurants = () => {
   const dispatch = useDispatch()
@@ -201,15 +202,21 @@ const Restaurants = () => {
   })
 
   return (
-    <>
-      <div>{mappedRestaurants}</div>
+    <section className='restaurants-pagination-container'>
+      <section className='restaurants-container'>
+        {mappedRestaurants.length ? (
+          mappedRestaurants
+        ) : (
+          <p>No restaurants found... Please reset or update some filters.</p>
+        )}
+      </section>
       {loading && <LoadingSpinner asOverlay />}
       <Pagination
         restaurantsPerPage={restaurantsPerPage}
         totalRestaurants={restaurantsToMap.length}
         paginate={paginateHandler}
       />
-    </>
+    </section>
   )
 }
 

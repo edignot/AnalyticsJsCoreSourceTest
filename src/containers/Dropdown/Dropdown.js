@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import {
   setStateFilter,
@@ -6,6 +7,7 @@ import {
   setAttireFilter,
   setCurrentPageNumber,
 } from '../../actions/session'
+import './Dropdown.css'
 
 const Dropdown = ({ possibleOptions, title, type }) => {
   const dispatch = useDispatch()
@@ -37,7 +39,7 @@ const Dropdown = ({ possibleOptions, title, type }) => {
     </option>
   ))
   return (
-    <select onChange={handleSelectorChange}>
+    <select onChange={handleSelectorChange} className='dropdown-list'>
       <option value=''>{title}</option>
       <option value=''>DISPLAY ALL</option>
       {options}
@@ -46,3 +48,9 @@ const Dropdown = ({ possibleOptions, title, type }) => {
 }
 
 export default Dropdown
+
+Dropdown.prototypes = {
+  possibleOptions: PropTypes.array,
+  title: PropTypes.string,
+  type: PropTypes.string,
+}
