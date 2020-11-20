@@ -24,7 +24,7 @@ describe('Restaurant', () => {
   })
 
   it('Restaurant Component should successfully render', () => {
-    const { getAllByTestId, getByText } = RestaurantComponent
+    const { getByText } = RestaurantComponent
     expect(getByText(restaurant.name)).toBeInTheDocument()
 
     expect(
