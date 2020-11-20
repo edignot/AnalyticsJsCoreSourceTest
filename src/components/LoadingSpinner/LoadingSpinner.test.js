@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store'
 import { initialStateTestData } from '../../test-data'
 import LoadingSpinner from './LoadingSpinner'
 
-describe('Restaurant', () => {
+describe('Loading Spinner', () => {
   let LoadingSpinnerComponent, store, mockStore, initialState
 
   beforeEach(() => {

@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store'
 import { initialStateTestData } from '../../test-data'
 import App from './App'
 
-describe('Restaurant', () => {
+describe('App', () => {
   let AppComponent, store, mockStore, initialState, restaurant
 
   beforeEach(() => {

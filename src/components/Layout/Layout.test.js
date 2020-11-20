@@ -7,7 +7,7 @@ import { initialStateTestData } from '../../test-data'
 import Layout from './Layout'
 import RestaurantsPage from '../../pages/RestaurantsPage/RestaurantsPage'
 
-describe('Restaurant', () => {
+describe('Layout', () => {
   let LayoutComponent, store, mockStore, initialState, restaurant
 
   beforeEach(() => {
