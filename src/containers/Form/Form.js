@@ -34,6 +34,10 @@ const Form = () => {
     dispatch(filterRestaurants(filteredRestaurants))
   }
 
+  const handleKeyDown = (e) => {
+    e.key === 'Enter' && searchHandler()
+  }
+
   const clearHandler = () => {
     setSearchValue('')
     dispatch(clearAll())
@@ -79,6 +83,7 @@ const Form = () => {
           type='text'
           placeholder='Search by restaurant name | city | genre'
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           value={searchValue}
           className='search-input'
         />
