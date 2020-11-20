@@ -73,20 +73,21 @@ const Form = () => {
 
   return (
     <section className='search-filter-form-container'>
-      <section>
+      <section className='search-input-wrapper'>
         <input
           name='Search by restaurant name | city | genre'
           type='text'
           placeholder='Search by restaurant name | city | genre'
           onChange={handleChange}
           value={searchValue}
+          className='search-input'
         />
-        <button onClick={searchHandler}>
+        <button onClick={searchHandler} className='search-button'>
           <BiSearch />
         </button>
       </section>
 
-      <section>
+      <section className='filters-wrapper'>
         <Dropdown
           possibleOptions={stateFilterOptions}
           title='Filter by State'

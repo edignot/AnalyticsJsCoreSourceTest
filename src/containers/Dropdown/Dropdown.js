@@ -39,7 +39,7 @@ const Dropdown = ({ possibleOptions, title, type }) => {
     </option>
   ))
   return (
-    <select onChange={handleSelectorChange}>
+    <select onChange={handleSelectorChange} className='dropdown-list'>
       <option value=''>{title}</option>
       <option value=''>DISPLAY ALL</option>
       {options}
