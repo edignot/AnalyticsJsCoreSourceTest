@@ -1,6 +1,8 @@
 # Restaurants Search Engine
 
-## https://restaurantssearchengine.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
+
+## https://restaurantsearchengine.netlify.app/
 
 ![Restaurants Search Engine](/restaurantsmockup.jpg)
 
@@ -63,7 +65,7 @@ I prefer using Axios rather that Fetch, because Axios transforms JSON data autom
 
 #### `Netlify CI`
 
-Deployed on Netlify https://restaurantssearchengine.netlify.app/ and automatically builds after master updates
+Deployed on Netlify https://restaurantssearchengine.netlify.app/ and automatically builds after master updates [![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
 
 #### `Jest | React Testing Library`
 
