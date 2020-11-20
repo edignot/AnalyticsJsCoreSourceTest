@@ -4,8 +4,11 @@ import './LoadingSpinner.css'
 
 const LoadingSpinner = ({ asOverlay }) => {
   return (
-    <section className={`${asOverlay && 'loading-spinner__overlay'}`}>
-      <section className='lds-dual-ring'></section>
+    <section
+      data-testid='spinner-container'
+      className={`${asOverlay && 'loading-spinner__overlay'}`}
+    >
+      <section data-testid='spinner' className='lds-dual-ring'></section>
     </section>
   )
 }

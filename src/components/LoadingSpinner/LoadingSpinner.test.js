@@ -4,27 +4,27 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { initialStateTestData } from '../../test-data'
-import App from './App'
+import LoadingSpinner from './LoadingSpinner'
 
-describe('App', () => {
-  let AppComponent, store, mockStore, initialState, restaurant
+describe('Loading Spinner', () => {
+  let LoadingSpinnerComponent, store, mockStore, initialState
 
   beforeEach(() => {
     initialState = initialStateTestData
-    restaurant = initialStateTestData.restaurants[0]
 
     mockStore = configureStore()
     store = mockStore(initialState)
 
-    AppComponent = render(
+    LoadingSpinnerComponent = render(
       <Provider store={store}>
-        <App />
+        <LoadingSpinner />,
       </Provider>,
     )
   })
 
   it('App should successfully render Layout ( Layouts render Header, Footer and Children components )', () => {
-    const { getByText } = AppComponent
-    expect(getByText(restaurant.name)).toBeInTheDocument()
+    const { getByTestId } = LoadingSpinnerComponent
+    expect(getByTestId('spinner-container')).toBeInTheDocument()
+    expect(getByTestId('spinner')).toBeInTheDocument()
   })
 })
