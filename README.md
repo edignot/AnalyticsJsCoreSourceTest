@@ -68,6 +68,108 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
 ## File Structure:
 ### Here you can find links fo files and some code snippets from those files. 
 
+### Testing
+  #### Redux Testing
+   - [Session Action Creators](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
+```
+...
+  it('should have a type FILTER_RESTAURANTS', () => {
+    const action = {
+      type: 'FILTER_RESTAURANTS',
+      filteredRestaurants,
+    }
+    const result = actions.filterRestaurants(filteredRestaurants)
+    expect(result).toEqual(action)
+  })
+...
+  it('should have a type SET_STATE_FILTER', () => {
+    const action = {
+      type: 'SET_STATE_FILTER',
+      stateFilter,
+    }
+    const result = actions.setStateFilter(stateFilter)
+    expect(result).toEqual(action)
+  })
+...
+```
+   - [Reducers](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
+```
+...
+  it('should return session state with updated genre filter', () => {
+    const action = {
+      type: 'SET_GENRE_FILTER',
+      genreFilter: sessionTestData.genreFilter,
+    }
+    const result = session(sessionState, action)
+    expect(result).toEqual({
+      ...sessionState,
+      genreFilter: sessionTestData.genreFilter,
+    })
+  })
+...
+```
+  #### React Components
+   - [Restaurant](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.test.js)
+```
+...
+describe('Restaurant', () => {
+  let RestaurantComponent, store, mockStore, initialState, restaurant
+
+  beforeEach(() => {
+    initialState = initialStateTestData
+    restaurant = initialStateTestData.restaurants[0]
+
+    mockStore = configureStore()
+    store = mockStore(initialState)
+
+    RestaurantComponent = render(
+      <Provider store={store}>
+        <Restaurant restaurant={restaurant} />
+      </Provider>,
+    )
+  })
+
+  it('Restaurant Component should successfully render', () => {
+    const { getByText } = RestaurantComponent
+    expect(getByText(restaurant.name)).toBeInTheDocument()
+
+    expect(
+      getByText(`${restaurant.city} , ${restaurant.state}`),
+    ).toBeInTheDocument()
+
+    expect(getByText(`+1 ${restaurant.telephone}`)).toBeInTheDocument()
+
+    for (const genre of restaurant.genreArray) {
+      expect(getByText(genre)).toBeInTheDocument()
+    }
+
+    expect(
+      getByText(
+        `${restaurant.address1} ${restaurant.city} ${restaurant.state} ${restaurant.zip}`,
+      ),
+    ).toBeInTheDocument()
+
+    expect(getByText(restaurant.hours)).toBeInTheDocument()
+
+    expect(getByText(restaurant.website)).toBeInTheDocument()
+
+    for (const tag of restaurant.tagsArray) {
+      expect(getByText(`# ${tag}`)).toBeInTheDocument()
+    }
+
+    expect(getByText(restaurant.attire)).toBeInTheDocument()
+  })
+})
+```
+   - [Layout](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.test.js)
+   - [App](https://github.com/edignot/Restaurants/blob/master/src/components/App/App.test.js)
+   - [Dropdown](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.test.js)
+   - []()
+   - []()
+   - []()
+   - []()
+   - []()
+
 ### React Components
   #### Pages ( Right now this app had only one page, so no React Router is used )
   - [Restaurants Page](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
@@ -299,49 +401,6 @@ export const setGenreFilter = (genreFilter) => ({
 })
 ...
 ```
-### Testing
-  #### Redux Testing
-   - [Session Action Creators](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
-```
-...
-  it('should have a type FILTER_RESTAURANTS', () => {
-    const action = {
-      type: 'FILTER_RESTAURANTS',
-      filteredRestaurants,
-    }
-    const result = actions.filterRestaurants(filteredRestaurants)
-    expect(result).toEqual(action)
-  })
-...
-  it('should have a type SET_STATE_FILTER', () => {
-    const action = {
-      type: 'SET_STATE_FILTER',
-      stateFilter,
-    }
-    const result = actions.setStateFilter(stateFilter)
-    expect(result).toEqual(action)
-  })
-...
-```
-   - [Reducers](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
-```
-...
-  it('should return session state with updated genre filter', () => {
-    const action = {
-      type: 'SET_GENRE_FILTER',
-      genreFilter: sessionTestData.genreFilter,
-    }
-    const result = session(sessionState, action)
-    expect(result).toEqual({
-      ...sessionState,
-      genreFilter: sessionTestData.genreFilter,
-    })
-  })
-...
-```
-  #### React Components
-   - [Unit Testing]()
-   - [Integrations Testing]()
 ---
 
 ## Development Instructions:
