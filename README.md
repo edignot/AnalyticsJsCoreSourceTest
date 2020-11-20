@@ -2,6 +2,8 @@
 
 ## https://edignot.com/
 
+## [Kanban Project Board](https://github.com/edignot/Restaurants/projects/1)
+
 ![Restaurants Search Engine](/restaurantsmockup.jpg)
 
 ## About:
