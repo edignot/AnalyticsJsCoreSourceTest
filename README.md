@@ -58,10 +58,28 @@ I ussually add unit as well as integration tests for each project I'm building. 
 My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and other functionalities. But due to short timeframe given for this code challenge I decided to style my app with plain CSS. I was still able to use CSS variables for colors and plan to add more varianbles for constants or switch to SCSS in the future.
 
 ## File Structure:
+### Here you can find links fo files and some code snippets from those files. 
 
 ### React Components
   #### Pages ( Right now this app had only one page, so no React Router is used )
   - [Restaurants Page](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
+```
+import React from 'react'
+import Restaurants from '../../containers/Restaurants/Restaurants'
+import Form from '../../containers/Form/Form'
+import './RestaurantsPage.css'
+
+const RestaurantsPage = () => {
+  return (
+    <section className='restaurants-page-container'>
+      <Form />
+      <Restaurants />
+    </section>
+  )
+}
+
+export default RestaurantsPage
+```
   #### Containers ( uses global Redux store )
   - [Seacrch and Filters Form](https://github.com/edignot/Restaurants/blob/master/src/containers/Form/Form.js)
 ```
@@ -160,9 +178,40 @@ const Dropdown = ({ possibleOptions, title, type }) => {
 ...
 ```
   #### Components ( don't use global Redux store )
-  - e.g.[ ] 
-  - e.g.[ ] 
-  ### Api Calls
+  - [ALL COMPONENTS](https://github.com/edignot/Restaurants/tree/master/src/components)
+    - e.g. [Layout (Includes Header and Footer and renders children any components](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.js)
+```
+import React from 'react'
+import PropTypes from 'prop-types'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+
+const Layout = ({ children }) => {
+  return (
+    <section>
+      <Header />
+      {children}
+      <Footer />
+    </section>
+  )
+}
+
+export default Layout
+
+Layout.propTypes = {
+  children: PropTypes.node,
+}
+```
+   - e.g. [Restaurant Card](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.js)
+```
+  const genres = genreArray.map((genre) => (
+    <li key={uid()} className='genres-item'>
+      {genre}
+    </li>
+  ))
+```
+### Api Calls
+  - [Api](https://github.com/edignot/Restaurants/blob/master/src/api/index.js)
 ```
 import axios from 'axios'
 
@@ -177,7 +226,78 @@ export const fetchRestaurants = () =>
     },
   })
 ```
+### Redux
+  ### Reducers
+  -[Session Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
+  -[Restaurants Data Reducer](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+```
+export default (restaurants = [], action) => {
+  switch (action.type) {
+    case 'FETCH_RESTAURANTS':
+      return action.payload
+    default:
+      return restaurants
+  }
+}
+```
+  ### Action Creators
+  -[Restaurants Actions with Redux Thunk](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+```
+import * as api from '../api'
 
+export const getRestaurants = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchRestaurants()
+
+    const restaurants = data.map((restaurant) => {
+      const genreArray = restaurant.genre.split(',')
+      const tagsArray = restaurant.tags.split(',')
+      return {
+        ...restaurant,
+        attire: restaurant.attire.toLowerCase(),
+        genreArray,
+        tagsArray,
+      }
+    })
+
+    const restaurantsSortedByName = restaurants.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0,
+    )
+
+    dispatch({
+      type: 'FETCH_RESTAURANTS',
+      payload: restaurantsSortedByName,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+```
+  -[Session Actions](https://github.com/edignot/Restaurants/blob/master/src/actions/session.js)
+```
+...
+export const clearAll = () => ({
+  type: 'CLEAR_ALL',
+})
+
+export const setCurrentPageNumber = (currentPageNumber) => ({
+  type: 'SET_CURRENT_PAGE_NUMBER',
+  currentPageNumber,
+})
+
+export const setGenreFilter = (genreFilter) => ({
+  type: 'SET_GENRE_FILTER',
+  genreFilter,
+})
+...
+```
+### Testing
+  #### Redux Testing
+   - [Action Creators]()
+   - [Reducers]()
+  #### React Components
+   - [Unit Testing]()
+   - [Integrations Testing]()
 ---
 
 ## Development Instructions:
