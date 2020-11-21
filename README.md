@@ -31,6 +31,12 @@ This is a simple one page React Application that pull restaurant data from a sin
 
 ## Completed Strech Goals:
 
+<<<<<<< HEAD
+
+=======
+
+> > > > > > > 6da3f94609d661b6778a77bb9ff11dfc9229a9ac
+
 - [x] CI/CD
 - [x] Unit Testing ( +some integration testing )
 - [x] A user can click table row to see additional information
