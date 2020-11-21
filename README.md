@@ -1,36 +1,43 @@
 # Restaurants Search Engine
 
-## https://restaurantssearchengine.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
+
+## https://restaurantsearchengine.netlify.app/
 
 ![Restaurants Search Engine](/restaurantsmockup.jpg)
 
 ## About:
+
 This is a simple one page React Application that pull restaurant data from a single API, displays all the data in the table and allows users to search restaurants by either name, state or genre. All filters and search can be applied separately or combined together.
 
 #### App presentation video:
-[![Video App Presentation](/restaurants.jpg)](https://vimeo.com/481528645) 
+
+[![Video App Presentation](/restaurants.jpg)](https://vimeo.com/481528645)
 
 ## Completed MVP User Stories:
+
 - [x] A user should be able to see a table with the name, city, state, phone number, and genres for each restaurant.
 - [x] A user should see results sorted by name in alphabetical order starting with the beginning of the alphabet
 - [x] A user should be able to filter restaurants by state.
 - [x] A user should be able to filter by genre.
 - [x] State and Genre filters should default to “All” and take effect instantaneously (no additional clicks).
 - [x] A user should be able to enter text into a search field. When hitting the enter key or clicking on a search
-button, the table should search results. Search results should match either the name, city, or genre.
+      button, the table should search results. Search results should match either the name, city, or genre.
 - [x] A user should be able to clear the search by clearing the text value in the search input.
 - [x] A user should only see 10 results at a time and the table should be paginated.
 - [x] A user should be able to combine filters and search. The user should be able to turn filters on and off while a
-search value is present.
+      search value is present.
 - [x] If any of the filters do not return any restaurants, the UI should indicate that no results were found.
 
 ## Completed Strech Goals:
-- [ ] CI/CD
+
+- [x] CI/CD
 - [x] Unit Testing ( +some integration testing )
 - [x] A user can click table row to see additional information
 - [x] A user can also filter by attire and combine attire filter with other filters and search
 
 ## Future Goals
+
 - [ ] Add more integration tests, test button click, search, filters...
 - [ ] Display mini-map when more information is showed
 - [ ] Add filter by tags functionality and combine it with other filters
@@ -40,8 +47,9 @@ search value is present.
 - [ ] Refactor combining filters functionality or move it to separate components
 
 ## Kanban Project Board
-  Used GitHub Projects to track progress of development
-  https://github.com/edignot/Restaurants/projects/1
+
+Used GitHub Projects to track progress of development
+https://github.com/edignot/Restaurants/projects/1
 
 ## Tech Stack:
 
@@ -63,7 +71,7 @@ I prefer using Axios rather that Fetch, because Axios transforms JSON data autom
 
 #### `Netlify CI`
 
-Deployed on Netlify https://restaurantssearchengine.netlify.app/ and automatically builds after master updates
+Deployed on Netlify https://restaurantssearchengine.netlify.app/ and automatically builds after master updates [![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
 
 #### `Jest | React Testing Library`
 
@@ -74,11 +82,15 @@ I ussually add unit as well as integration tests for each project I'm building. 
 My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and other functionalities. But due to short timeframe given for this code challenge I decided to style my app with plain CSS. I was still able to use CSS variables for colors and plan to add more varianbles for constants or switch to SCSS in the future.
 
 ## File Structure:
-### Here you can find links fo files and some code snippets from those files. 
+
+### Here you can find links fo files and some code snippets from those files.
 
 ### Testing
-  #### Redux Testing
-   - [Session Action Creators test file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
+
+#### Redux Testing
+
+- [Session Action Creators test file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.test.js)
+
 ```
 ...
   it('should have a type FILTER_RESTAURANTS', () => {
@@ -100,7 +112,9 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
   })
 ...
 ```
-   - [Reducers test file](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
+
+- [Reducers test file](https://github.com/edignot/Restaurants/blob/master/src/reducers/reducers.test.js)
+
 ```
 ...
   it('should return session state with updated genre filter', () => {
@@ -116,8 +130,11 @@ My initial idea was to use SCSS ( I'm a big fan of it ), utilize SCSS mixins and
   })
 ...
 ```
-  #### React Components
-   - [Restaurant test file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.test.js)
+
+#### React Components
+
+- [Restaurant test file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.test.js)
+
 ```
 ...
 describe('Restaurant', () => {
@@ -169,18 +186,22 @@ describe('Restaurant', () => {
   })
 })
 ```
-   - [Layout test file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.test.js)
-   - [App test file](https://github.com/edignot/Restaurants/blob/master/src/components/App/App.test.js)
-   - [Dropdown test file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.test.js)
-   - []()
-   - []()
-   - []()
-   - []()
-   - []()
+
+- [Layout test file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.test.js)
+- [App test file](https://github.com/edignot/Restaurants/blob/master/src/components/App/App.test.js)
+- [Dropdown test file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.test.js)
+- []()
+- []()
+- []()
+- []()
+- []()
 
 ### React Components
-  #### Pages ( Right now this app had only one page, so no React Router is used )
-  - [Restaurants Page component file](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
+
+#### Pages ( Right now this app had only one page, so no React Router is used )
+
+- [Restaurants Page component file](https://github.com/edignot/Restaurants/blob/master/src/pages/RestaurantsPage/RestaurantsPage.js)
+
 ```
 import React from 'react'
 import Restaurants from '../../containers/Restaurants/Restaurants'
@@ -198,8 +219,11 @@ const RestaurantsPage = () => {
 
 export default RestaurantsPage
 ```
-  #### Containers ( uses global Redux store )
-  - [Seacrch and Filters Form component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Form/Form.js)
+
+#### Containers ( uses global Redux store )
+
+- [Seacrch and Filters Form component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Form/Form.js)
+
 ```
 ...
   const searchHandler = () => {
@@ -217,7 +241,9 @@ export default RestaurantsPage
   }
 ...
 ```
-  - [Pagination component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Pagination/Pagination.js)
+
+- [Pagination component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Pagination/Pagination.js)
+
 ```
 ...
 const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
@@ -244,7 +270,9 @@ const Pagination = ({ restaurantsPerPage, totalRestaurants, paginate }) => {
 }
 ...
 ```
-  - [Restaurants component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Restaurants/Restaurants.js)
+
+- [Restaurants component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Restaurants/Restaurants.js)
+
 ```
 ...
 const Restaurants = () => {
@@ -267,7 +295,9 @@ const Restaurants = () => {
   }, [dispatch])
 ...
 ```
-  - [Dropdown Filter component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.js)
+
+- [Dropdown Filter component file](https://github.com/edignot/Restaurants/blob/master/src/containers/Dropdown/Dropdown.js)
+
 ```
 ...
 const Dropdown = ({ possibleOptions, title, type }) => {
@@ -295,9 +325,12 @@ const Dropdown = ({ possibleOptions, title, type }) => {
   }
 ...
 ```
-  #### Components ( don't use global Redux store )
-  - [ALL COMPONENTS](https://github.com/edignot/Restaurants/tree/master/src/components)
-    - e.g. [Layout (Includes Header and Footer and renders children any components) component file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.js)
+
+#### Components ( don't use global Redux store )
+
+- [ALL COMPONENTS](https://github.com/edignot/Restaurants/tree/master/src/components)
+  - e.g. [Layout (Includes Header and Footer and renders children any components) component file](https://github.com/edignot/Restaurants/blob/master/src/components/Layout/Layout.js)
+
 ```
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -320,7 +353,9 @@ Layout.propTypes = {
   children: PropTypes.node,
 }
 ```
-   - e.g. [Restaurant Card component file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.js)
+
+- e.g. [Restaurant Card component file](https://github.com/edignot/Restaurants/blob/master/src/components/Restaurant/Restaurant.js)
+
 ```
   const genres = genreArray.map((genre) => (
     <li key={uid()} className='genres-item'>
@@ -328,8 +363,11 @@ Layout.propTypes = {
     </li>
   ))
 ```
+
 ### Api Calls
-  - [Api calls file](https://github.com/edignot/Restaurants/blob/master/src/api/index.js)
+
+- [Api calls file](https://github.com/edignot/Restaurants/blob/master/src/api/index.js)
+
 ```
 import axios from 'axios'
 
@@ -344,10 +382,14 @@ export const fetchRestaurants = () =>
     },
   })
 ```
+
 ### Redux
-  ### Reducers
-  - [Session Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
-  - [Restaurants Data Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+
+### Reducers
+
+- [Session Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/session.js)
+- [Restaurants Data Reducer file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+
 ```
 export default (restaurants = [], action) => {
   switch (action.type) {
@@ -358,8 +400,11 @@ export default (restaurants = [], action) => {
   }
 }
 ```
-  ### Action Creators
-  -[Restaurants Actions with Redux Thunk file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+
+### Action Creators
+
+-[Restaurants Actions with Redux Thunk file](https://github.com/edignot/Restaurants/blob/master/src/reducers/restaurants.js)
+
 ```
 import * as api from '../api'
 
@@ -391,7 +436,9 @@ export const getRestaurants = () => async (dispatch) => {
   }
 }
 ```
-  -[Session Actions file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.js)
+
+-[Session Actions file](https://github.com/edignot/Restaurants/blob/master/src/actions/session.js)
+
 ```
 ...
 export const clearAll = () => ({
@@ -409,13 +456,17 @@ export const setGenreFilter = (genreFilter) => ({
 })
 ...
 ```
+
 ---
 
 ## Development Instructions:
-- clone repo 
+
+- clone repo
 - run `npm i`
+- create .env file and add `REACT_APP_API_KEY=<change this to valid API key>`
 - run `npm start`
 - open `http://localhost:3000`
 
 ## Contributors:
+
 - [Edita Ignot](https://github.com/edignot)
