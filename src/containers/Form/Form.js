@@ -86,6 +86,7 @@ const Form = () => {
           onKeyDown={handleKeyDown}
           value={searchValue}
           className='search-input'
+          data-testid='search-input'
         />
         <button onClick={searchHandler} className='search-button'>
           <BiSearch />

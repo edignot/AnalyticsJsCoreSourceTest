@@ -4,10 +4,10 @@ import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { initialStateTestData } from '../../test-data'
-import Dropdown from './Dropdown'
+import Form from './Form'
 
-describe('Dropdown', () => {
-  let DropdownComponent, store, mockStore, initialState
+describe('Form', () => {
+  let FormComponent, store, mockStore, initialState
 
   beforeEach(() => {
     initialState = initialStateTestData
@@ -15,25 +15,24 @@ describe('Dropdown', () => {
     mockStore = configureStore()
     store = mockStore(initialState)
 
-    DropdownComponent = render(
+    FormComponent = render(
       <Provider store={store}>
-        <Dropdown
-          possibleOptions={initialState.restaurants[0].genreArray}
-          title='Filter by Genre'
-        />
+        <Form />
       </Provider>,
     )
   })
 
   it('Dropdown should successfully display given options', () => {
-    const { getByText } = DropdownComponent
+    const { getByText, getByTestId } = FormComponent
 
-    expect(getByText('DISPLAY ALL')).toBeInTheDocument()
+    expect(getByTestId('search-input')).toBeInTheDocument()
 
     expect(getByText('Filter by Genre')).toBeInTheDocument()
 
-    for (const genre of initialState.restaurants[0].genreArray) {
-      expect(getByText(genre)).toBeInTheDocument()
-    }
+    expect(getByText('Filter by State')).toBeInTheDocument()
+
+    expect(getByText('Filter by Attire')).toBeInTheDocument()
+
+    expect(getByText('clear all filters')).toBeInTheDocument()
   })
 })
