@@ -44,6 +44,7 @@ This is a simple one page React Application that pull restaurant data from a sin
 - [ ] Add some media queries, make the app fully responsive
 - [ ] Utilize PWA
 - [ ] Refactor combining filters functionality or move it to separate components
+- [ ] Implement user authentication
 
 ## Kanban Project Board
 
